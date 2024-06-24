@@ -1,0 +1,25 @@
+intents = {"greeting":['hi','hello','good morning'],
+         "time":['working','hours','long','time'],
+         "closing":['bye','see you later','goodbye'],
+         "thanks":['thanks!','thankyou']
+         }
+responses={
+    "greeting":['hi there how can help you?','hello how you doing?','what\'s up?'],
+    "time":['we are open from 9am to 9pm','9 to 9'],
+    "closing":['bye! have a nice day','goodbye'],
+    "thanks":['you\'re welcome ','anytime','welcome']
+} 
+import random
+while True:
+    print("CHATBOT")
+    q=input()
+    q=q.lower()
+    selected_intent = ''
+    for intent,keywords in intents.items():
+        if q in keywords:
+            selected_intent += intent
+            break
+    if selected_intent != '':
+        print("chatbot:",random.choice(responses[selected_intent]))
+    else:
+        print('Iam sorry, I dont understand that')
